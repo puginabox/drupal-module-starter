@@ -52,6 +52,11 @@ $blocks['module_template'] = array(
  * Implements hook_node_view()
  */
 function module_template_node_view($node, $view_mode, $langcode) {
+    $node->content['module_template_field'] = array(){
+        '#type' => 'markup',
+        '#markup' => '<p>' . t('placeholder text'). '</p>',
+        '#weight' => -10,
+    }
     krumo($node);
 }
     
