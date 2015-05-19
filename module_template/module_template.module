@@ -1,0 +1,61 @@
+<?php
+/**
+* @file module_template.module
+ * Module template
+ */
+
+/**
+ * Implements hook_permission()
+ */
+function module_template_permission() {
+    return array(
+        'administer my module' => array(
+            'title' => t('Administer my module'),
+            'description' => t('Perform stuff for my module.'),
+        ),
+    );
+}
+
+/**
+ * Implements hook_init()
+ */
+ function module_template_init() {
+$path = drupal_get_path('module', 'module_template');
+  $css_config = array(
+    'type'       => 'file',
+    'group'      => CSS_THEME,
+    'preprocess' => TRUE
+  );
+  drupal_add_css($path . '/module_template.css', $css_config);
+  $js_config = array(
+    'type'       => 'file',
+    'weight'     => 5,
+  );
+  drupal_add_js($path . '/module_template.js', $js_config);
+}
+
+/**
+ * Implements hook_block_info()
+ */
+ function module_template_block_info() {
+$blocks['module_template'] = array(
+    'info' => t('Module Template'), /* t() = translate into other languages */
+  );
+  $blocks['module_template_nr'] = array(
+      'info' => t('Module Template - No Results'),
+  );
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_node_view()
+ */
+function module_template_node_view($node, $view_mode, $langcode) {
+    krumo($node);
+}
+    
+    
+    
+    
+    

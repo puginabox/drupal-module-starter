@@ -1,0 +1,4 @@
+name = "Module Template"
+description = "Module Development template"
+core = "7.x"
+package = "Drupal 7 Templates"
